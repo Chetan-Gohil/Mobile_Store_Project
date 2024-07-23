@@ -1,0 +1,208 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1:3306
+-- Generation Time: Mar 28, 2023 at 10:07 AM
+-- Server version: 5.7.36
+-- PHP Version: 7.4.26
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `mobile_store2`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+DROP TABLE IF EXISTS `cart`;
+CREATE TABLE IF NOT EXISTS `cart` (
+  `mobile_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`mobile_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+DROP TABLE IF EXISTS `category`;
+CREATE TABLE IF NOT EXISTS `category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `category_name`) VALUES
+(28, 'oneplus'),
+(29, 'vivo'),
+(30, 'oppo'),
+(31, 'samsung'),
+(32, 'apple'),
+(33, 'nokia'),
+(34, 'intex'),
+(35, 'realme'),
+(36, 'poco'),
+(38, 'motorola');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feed_back`
+--
+
+DROP TABLE IF EXISTS `feed_back`;
+CREATE TABLE IF NOT EXISTS `feed_back` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `massage` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `feed_back`
+--
+
+INSERT INTO `feed_back` (`id`, `username`, `email`, `massage`) VALUES
+(20, 'ashish', 'ashish@gmail.com', 'the very good mobile store'),
+(18, 'ashish', 'ashish@gmail.com', 'dvxcv'),
+(19, 'chetan', 'chetan@gmail.com', 'This is very Good mobile store...There is very  latest smartphones'),
+(21, 'chetan', 'gohil@gmail.com', 'there is a store which is great');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mobile`
+--
+
+DROP TABLE IF EXISTS `mobile`;
+CREATE TABLE IF NOT EXISTS `mobile` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `image` varchar(255) NOT NULL,
+  `mobile_name` varchar(255) NOT NULL,
+  `launch_date` varchar(255) NOT NULL,
+  `price` int(11) NOT NULL,
+  `rating` int(11) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `ram` varchar(255) NOT NULL,
+  `rom` varchar(255) NOT NULL,
+  `battery` varchar(255) NOT NULL,
+  `category_name` varchar(255) NOT NULL,
+  `front_camera` varchar(255) NOT NULL,
+  `rear_camera` varchar(255) NOT NULL,
+  `processor` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=63 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mobile`
+--
+
+INSERT INTO `mobile` (`id`, `image`, `mobile_name`, `launch_date`, `price`, `rating`, `description`, `ram`, `rom`, `battery`, `category_name`, `front_camera`, `rear_camera`, `processor`) VALUES
+(57, 'mobileimg/Screenshot_20230328-123823_Chrome.jpg', 'poco c50', '21/02/2009', 8999, 0, '16.56 cm(6.52 inch) HD +display', '2 GB', '32 GB', '5000 mAh', 'poco', '5mp', '8mp', 'dual'),
+(58, 'mobileimg/Screenshot_20230328-125026_Chrome.jpg', 'APPLE I-Phone 13', '21/02/23', 61999, 0, 'APPLE I-Phone 13(midnight)\r\n16.49cm(6.1inch) super retina XDR display\r\n', '6 GB', '128 GB', '4800 mAh', 'apple', '12mp', '12mp+12mp', 'A15 bionic processor'),
+(55, 'mobileimg/Screenshot_2023-03-16-13-36-29-26_fd1e8ef594b195c55a3bba4818d0ce35.jpg', 'SAMSUNG Galaxy S10', '21/09/2021', 39999, 0, 'SAMSUNG Galaxy S10 (Prism Blue)\r\n15.49 cm (6.1 inch) Quad HD+ Display', '8 GB', '128 GB', '3400 mAh', 'samsung', '10MP', '16mp + 12mp', 'Exynos 9 9820 Processor'),
+(54, 'mobileimg/Screenshot_2023-03-16-13-43-27-78_680d03679600f7af0b4c700c6b270fe7.jpg', 'realme 7', '21/02/2005', 20000, 0, 'realme 7 (Mist Blue)\r\n16.51 cm (6.5 inch) Full HD+ Display', '6 GB', '64 GB', '5000 mAh', 'realme', '16MP', '48 mp', 'MediaTek Helio G95 Processor'),
+(53, 'mobileimg/Screenshot_2023-03-16-13-45-12-35_fd1e8ef594b195c55a3bba4818d0ce35.jpg', 'realme 9i 5G', '21/09/2005', 17999, 0, 'realme 9i 5G (Rocking Black)  | Expandable Upto 1 TB\r\n16.76 cm (6.6 inch) Full HD+ Display\r\n', '4 GB', '64 GB', '5000 mAh', 'realme', '8mp', '50mp', 'Mediatek Dimensity 810 5G Processor'),
+(52, 'mobileimg/Screenshot_2023-03-16-13-45-43-97_fd1e8ef594b195c55a3bba4818d0ce35.jpg', 'realme 10', '21/02/23', 17999, 0, 'realme 10 (Clash White)  | Expandable Upto \r\n16.26 cm (6.4 inch) Full HD+ Display', '8 GB', '128 GB', '5000 mAh', 'realme', '16MP', '50mp + 2mp', 'Mediatek Helio G99 Octa Core Processor'),
+(45, 'mobileimg/Screenshot_2023-03-16-13-52-26-97_c4b2fae5edd267b2847f1b32e9bc41c3.jpg', 'nokiya', '21/02/2002', 800, 0, 'Nokia 105 PLUS  (Charcoal)\r\n4.5 cm (1.77 inch) Display', '4 MB', 'na', '1000 mAh', 'nokia', '0MP', 'NA', 'MTK6261D'),
+(46, 'mobileimg/Screenshot_2023-03-16-13-51-48-46_680d03679600f7af0b4c700c6b270fe7.jpg', 'intex', '21/02/2005', 1000, 0, 'Intex Eco Selfie 2  (Black)\r\n4.57 cm (1.8 inch) Quarter QVGA Display\r\n', 'Na', '34 MB', '800 mAh', 'intex', '', '0.08MP', 'NA'),
+(56, 'mobileimg/Screenshot_2023-03-16-13-31-21-10_fd1e8ef594b195c55a3bba4818d0ce35.jpg', 'APPLE iPhone 14 Pro', '21/02/23', 189900, 0, 'APPLE iPhone 14 Pro (Deep Purple)\r\n15.49 cm (6.1 inch) Super Retina XDR Display\r\n', '6 GB', '128 GB', '3200', 'apple', '12mp', '48mp', '6 Core Processor'),
+(48, 'mobileimg/Screenshot_2023-03-16-13-49-58-91_c4b2fae5edd267b2847f1b32e9bc41c3.jpg', 'vivo T1 pro', '21/09/2005', 26990, 0, 'vivo T1 Pro 5G (Turbo Black) \r\n16.36 cm (6.44 inch) Full HD+ AMOLED Display', '8 GB', '128 GB', '4700 mAh', 'vivo', '16MP', '', 'qualcomm snapsragon 778G 5G Mobile Platform Processor'),
+(49, 'mobileimg/Screenshot_2023-03-16-13-49-34-97_c4b2fae5edd267b2847f1b32e9bc41c3.jpg', 'vivo T1 pro 5G', '21/02/2009', 28990, 0, 'vivo T1 Pro 5G (Turbo Cyan)\r\n16.36 cm (6.44 inch) Full HD+ AMOLED Display', '6 GB', '128 GB', '4700 mAh', 'vivo', '16MP', '64 mp', 'Qualcomm Snapdragon 778G 5G Mobile Platform Processor'),
+(50, 'mobileimg/Screenshot_2023-03-16-13-48-10-03_fd1e8ef594b195c55a3bba4818d0ce35.jpg', 'OPPO Reno8T 5G ', '21/02/2005', 29999, 0, 'OPPO Reno8T 5G (Midnight Black)\r\n17.02 cm (6.7 inch) Full HD+ Display OLED Screen\r\n', '8 GB', '128 GB', '4800 mAh', 'oppo', '32mp', '64 mp', 'Qualcomm Snapdragon 695 Processor'),
+(51, 'mobileimg/Screenshot_2023-03-16-13-46-29-55_c4b2fae5edd267b2847f1b32e9bc41c3.jpg', 'realme 10 Pro+ 5G', '21/09/2021', 18999, 0, 'realme 10 Pro+ 5G (Dark Matter) \r\n17.02 cm (6.7 inch) Full HD+ Display\r\n\r\n', '8 GB', '128 GB', '5000 mAh', 'realme', '16MP', '128mp', 'Mediatek Dimensity 1080 5G Processor'),
+(59, 'mobileimg/Screenshot_20230328-124949_Chrome.jpg', 'APPLE iPhone 14', '16/09/22', 79900, 0, 'APPLE iPhone 14(midnight)\r\n15.49cm(6.1 inch)liquid retina HD Display', '6 GB', '128 GB', '4700 mAh', 'apple', '16MP', '64 mp', 'A16 bionic processor'),
+(60, 'mobileimg/Screenshot_20230328-124345_Chrome.jpg', 'google pixel 6a', '21/02/23', 43999, 0, 'google pixel 6a(charcoal)\r\n15.6 cm(6.14 inch) full HD Display', '6 GB', '128 GB', '4410 mAh', 'apple', '8mp', '12.2 mp + 12 mp', 'octa-core processor'),
+(61, 'mobileimg/Screenshot_20230328-124151_Chrome.jpg', 'xiaomi 12 pro 5g ', '21/02/2009', 56999, 0, 'xiaomi 12 pro 5g(nair black)\r\n17.09cm(6.17inch Full HD Display', '12 GB', '256GB', '4600 mAh', 'realme', '16MP', '50 MP', 'Qualcomm Snapdragon 8 gen 1 Processor'),
+(62, 'mobileimg/Screenshot_20230328-124026_Chrome.jpg', 'MOTOROLA g52', '21/02/2002', 17999, 0, 'MOTOROLA g52(charcoal grey)', '4 GB', '64 GB', '5000 mAh', 'motorola', '16MP', '50mp + 8mp+2mp', 'qualcomm snapsragon 680');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_address`
+--
+
+DROP TABLE IF EXISTS `order_address`;
+CREATE TABLE IF NOT EXISTS `order_address` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
+  `address` text NOT NULL,
+  `country_id` varchar(255) NOT NULL,
+  `state_id` varchar(255) NOT NULL,
+  `zipcode` varchar(30) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `status` enum('Pending','Confirmed','Cancelled','Received By Customer') NOT NULL,
+  `order_no` int(11) NOT NULL,
+  `mobile_id` varchar(255) NOT NULL,
+  `order_date` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=74 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `order_address`
+--
+
+INSERT INTO `order_address` (`id`, `firstname`, `lastname`, `address`, `country_id`, `state_id`, `zipcode`, `user_id`, `status`, `order_no`, `mobile_id`, `order_date`) VALUES
+(61, 'jfjg', 'hgjhgj', 'jhjghj', 'ghjgh', 'ghj', '385310', 8, 'Pending', 18, '', '2023-03-27'),
+(71, 'Chetan', 'Gohil', 'chitrasani', 'india', 'gujarat', '385010', 8, 'Cancelled', 156, '54', '2023-03-28'),
+(65, 'Chetan', 'Gohil', 'tyutyu', 'india', 'gujarat', '555666', 8, 'Confirmed', 941, '25', '2023-03-27'),
+(66, 'Chetan', 'Gohil', 'tyutyu', 'india', 'gujarat', '555666', 8, 'Cancelled', 315, '27', '2023-03-27'),
+(67, 'Chetan', 'Gohil', 'chitrasani', 'india', 'gujarat', '385010', 8, 'Cancelled', 346, '37', '2023-03-27'),
+(72, 'akansha', 'ghdhvi', 'chitrasani', 'india', 'gujarat', '555666', 8, 'Confirmed', 329, '56', '2023-03-28'),
+(69, 'Chetan', 'Gohil', 'chitrasani', 'india', 'gujarat', '555666', 8, 'Confirmed', 682, '37', '2023-03-28'),
+(70, 'jagdish', 'Purohit', 'tyutyu', 'india', 'gujarat', '385010', 8, 'Received By Customer', 669, '30', '2023-03-28'),
+(73, 'Chetan', 'Gohil', 'chitrasani', 'india', 'gujarat', '385010', 8, 'Pending', 15, '57', '2023-03-28');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `firstname`, `lastname`, `email`, `password`, `image`, `type`) VALUES
+(8, 'Chetan', 'Gohil', 'chetan@gmail.com', '1111', 'imageup/photo-1483478550801-ceba5fe50e8e.jpeg', 'admin'),
+(9, 'Ashish', 'mevada', 'aa@gmail.com', '1111', 'imageup/02.png', 'user'),
+(10, 'Jagdish', 'Purohit', 'j@j.com', '1111', 'not compulsory', 'user'),
+(11, 'Chetan', 'Gohil', '', '', 'imageup/campus.jpg', 'user');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
